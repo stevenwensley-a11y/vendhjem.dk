@@ -206,6 +206,12 @@
             font-size: 0.85rem;
         }
         .hero-image-placeholder svg { opacity: 0.3; }
+        .hero-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
         .hero-badge {
             position: absolute;
             bottom: -16px;
@@ -551,6 +557,54 @@
             color: var(--color-text-soft);
         }
 
+        /* ---- VIDEO ---- */
+        .video-section {
+            padding: var(--section-padding);
+            background: var(--color-bg-warm);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 48px;
+        }
+        .video-card {
+            background: var(--color-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        .video-card .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-card .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .video-card-info {
+            padding: 20px 24px;
+        }
+        .video-card-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--color-text);
+            margin-bottom: 4px;
+        }
+        .video-card-info p {
+            font-size: 0.85rem;
+            color: var(--color-text-soft);
+        }
+        @media (max-width: 768px) {
+            .video-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
+
         /* ---- PODCAST ---- */
         .podcast {
             padding: var(--section-padding);
@@ -820,6 +874,7 @@
             <a href="#ydelser">Ydelser</a>
             <a href="#metode">Metode</a>
             <a href="#referencer">Referencer</a>
+            <a href="#videoer">Videoer</a>
             <a href="#podcast">Podcast</a>
             <a href="#maend">Mandefællesskab</a>
             <a href="#kontakt" class="nav-cta">Book en samtale</a>
@@ -845,13 +900,7 @@
         <div class="hero-image">
             <div class="hero-image-wrapper">
                 <div class="hero-image-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <circle cx="8.5" cy="8.5" r="1.5"/>
-                        <path d="M21 15l-5-5L5 21"/>
-                    </svg>
-                    <span>Billede af Lai Yde</span>
-                    <span style="font-size:0.75rem; opacity:0.6;">Inds&aelig;t portratfoto her</span>
+                    <img src="lai-yde.jpg" alt="Lai Yde — Foredragsholder og Coach" loading="eager">
                 </div>
             </div>
             <div class="hero-badge">
@@ -903,12 +952,7 @@
         <div>
             <div class="hero-image-wrapper" style="aspect-ratio: 3/4;">
                 <div class="hero-image-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <circle cx="8.5" cy="8.5" r="1.5"/>
-                        <path d="M21 15l-5-5L5 21"/>
-                    </svg>
-                    <span>Billede af Lai p&aring; scenen</span>
+                    <img src="lai-yde.jpg" alt="Lai Yde på scenen" loading="lazy">
                 </div>
             </div>
         </div>
@@ -993,6 +1037,29 @@
                 <p class="testimonial-text">"Jeg har aldrig oplevet lederudvikling der var så praktisk og vedkommende. Det var som om Lai kunne se ting i mig, jeg ikke selv var klar over."</p>
                 <div class="testimonial-author">[Navn — Placeholder]</div>
                 <div class="testimonial-role">[Titel, Virksomhed]</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ VIDEO ============ -->
+<section class="video-section" id="videoer">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Se Lai i aktion</span>
+            <h2>Videoer</h2>
+            <p>Oplev Lai's energi, tilgang og filosofi — direkte fra scenen og podcasten.</p>
+        </div>
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/yIwuy9PnaXg" title="Lai Yde — Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe src="https://www.youtube.com/embed/3glL0Xwcjus" title="Lai Yde — Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                </div>
             </div>
         </div>
     </div>
@@ -1145,6 +1212,7 @@
                 <a href="#ydelser">Foredrag</a>
                 <a href="#ydelser">Lederudvikling</a>
                 <a href="#ydelser">Teamudvikling</a>
+                <a href="#videoer">Videoer</a>
                 <a href="#podcast">Podcast</a>
             </div>
             <div class="footer-col">
