@@ -99,6 +99,19 @@
         /* MAP PLACEHOLDER */
         .map-placeholder { background: var(--color-bg-warm); border-radius: 20px; height: 300px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: var(--color-text-soft); font-size: 0.9rem; border: 2px dashed rgba(44,37,32,0.1); }
 
+        /* FAQ ACCORDION */
+        .faq-grid { max-width: 800px; margin: 48px auto 0; }
+        .faq-item { border-bottom: 1px solid rgba(44,37,32,0.1); }
+        .faq-question { width: 100%; background: none; border: none; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: var(--font-body); font-size: 1.05rem; font-weight: 500; color: var(--color-text); text-align: left; line-height: 1.5; transition: color 0.2s; }
+        .faq-question:hover { color: var(--color-green); }
+        .faq-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--color-green-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-left: 16px; font-size: 1.1rem; color: var(--color-green); transition: transform 0.3s, background 0.3s; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--color-green); color: white; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+        .faq-answer-inner { padding: 0 0 24px; color: var(--color-text-soft); font-size: 0.95rem; line-height: 1.8; }
+        .faq-badge { text-align: center; margin-top: 48px; font-size: 0.78rem; color: var(--color-text-soft); opacity: 0.6; }
+        .faq-badge a { color: var(--color-green); text-decoration: none; }
+        .faq-badge a:hover { text-decoration: underline; }
+
         /* CTA */
         .cta-box { background: var(--color-green); border-radius: 28px; padding: 80px 60px; text-align: center; position: relative; overflow: hidden; }
         .cta-box::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: rgba(255,255,255,0.06); }
@@ -135,6 +148,9 @@
             <a href="index.html">Forside</a>
             <a href="integral.html">Integral Teori</a>
             <a href="agersoe.html" class="active">Agersø</a>
+            <a href="blog.html">Blog</a>
+            <a href="refleksion.html">Refleksion</a>
+            <a href="finddinvej.html">Find din vej</a>
             <a href="faellesskab.html" class="nav-cta">Bliv en del</a>
         </div>
         <button class="mobile-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
@@ -300,6 +316,60 @@
     </div>
 </section>
 
+<!-- FAQ -->
+<section class="content-section warm">
+    <div class="container">
+        <div style="text-align:center;">
+            <span class="section-label">Ofte stillede spørgsmål</span>
+            <h2>Alt du vil vide om BuddhiCamp</h2>
+            <p style="max-width:600px;margin:0 auto;">Her er svar på de spørgsmål, vi oftest får. Kan du ikke finde dit svar, er du altid velkommen til at skrive til os.</p>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <button class="faq-question">Hvad er BuddhiCamp egentlig?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">BuddhiCamp er et ugelangt ophold på Agersø, hvor vi kombinerer yoga, meditation, skuespilbaserede workshops og dybt fællesskab. Det er ikke en ferie — men det er heller ikke et bootcamp. Det er et rum, hvor du kan sænke tempoet, mærke efter og udforske, hvad der sker, når du tør være til stede. Fuldt ud.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Skal man kunne yoga for at deltage?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Overhovedet ikke. Yogaen på BuddhiCamp er tilpasset alle niveauer. Det handler ikke om at kunne stå på hovedet — det handler om at mærke kroppen, trække vejret og være til stede. Vi møder dig, hvor du er.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Er det religiøst eller spirituelt?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Nej. BuddhiCamp er forankret i Integral Teori (Ken Wilber) og skuespilteknikker — ikke i nogen bestemt trosretning. Vi udforsker bevidsthed, krop og fællesskab på en måde, der er tilgængelig for alle, uanset baggrund. Du behøver ikke tro på noget bestemt. Bare komme med åbent sind.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Hvad koster det — og hvad er inkluderet?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Prisen er 6.500 kr for hele ugen, inklusiv kost og logi. Det dækker alle workshops, yoga, meditation, måltider og overnatning i glamping-faciliteter. Der er ingen skjulte tillæg. Det eneste du selv skal sørge for er transport til Agersø.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Hvordan kommer jeg til Agersø?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Du kører til Stigsnæs ved Skælskør, hvor du tager den lille færge til Agersø. Overfarten tager ca. 20 minutter. Færgen sejler flere gange dagligt, og vi sender praktisk info med afgangstider, når du har tilmeldt dig.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Hvad skal man medbringe?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Behageligt tøj til yoga og workshops, varmt tøj til aftener ved bålet, badetøj, en god sovepose (eller lån en af vores), og det du har brug for til personlig hygiejne. Vi anbefaler også en notesbog — mange opdager, at de har lyst til at skrive ting ned undervejs.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Er det kun for mænd?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Nej. BuddhiCamp er for alle. Vi har også et separat mandefællesskab (Vend Hjem for Mænd), men selve BuddhiCamp-ugerne er åbne for alle køn. Fællesskabet bliver rigere af mangfoldighed.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Hvor mange deltager ad gangen?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Vi holder gruppen lille — typisk 12-18 deltagere per uge. Det er et bevidst valg, fordi vi ønsker at skabe et rum, hvor alle bliver set og hørt. Ikke en festival, men et fællesskab.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Kan man komme alene?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Ja — de fleste kommer alene. Og det er en af de ting, folk bagefter siger overraskede dem mest: hvor hurtigt man finder forbindelse til andre, når rammerne er trygge og autentiske. Du kommer alene, men du går ikke hjem alene.</div></div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Hvornår er næste BuddhiCamp?<span class="faq-icon">+</span></button>
+                <div class="faq-answer"><div class="faq-answer-inner">Næste BuddhiCamp er 16.–22. juni 2026 på Agersø. Tilmelding sker via formularen på vores fællesskabsside. Pladserne er begrænsede, så vi anbefaler at tilmelde sig i god tid.</div></div>
+            </div>
+        </div>
+        <div class="faq-badge">FAQ genereret med AI-Assistent — drevet af <a href="https://bygmedai.dk" target="_blank">BygMedAI</a></div>
+    </div>
+</section>
+
 <!-- CTA -->
 <section class="content-section">
     <div class="container">
@@ -313,9 +383,29 @@
 
 <footer>
     <div class="container">
-        <p>&copy; 2026 <a href="index.html">VendHjem.dk</a> — Lai Yde | <a href="integral.html">Integral Teori</a> · <a href="agersoe.html">Agersø</a> · <a href="faellesskab.html">Bliv en del</a></p>
+        <p>&copy; 2026 <a href="index.html">VendHjem.dk</a> — Lai Yde | <a href="integral.html">Integral Teori</a> · <a href="agersoe.html">Agersø</a> · <a href="blog.html">Blog</a> · <a href="refleksion.html">Refleksion</a> · <a href="finddinvej.html">Find din vej</a> · <a href="faellesskab.html">Bliv en del</a></p>
     </div>
 </footer>
 
+<script>
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.faq-answer').style.maxHeight = '0';
+        });
+        // Open clicked (if it wasn't already open)
+        if (!isOpen) {
+            item.classList.add('open');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+    });
+});
+</script>
 </body>
 </html>
