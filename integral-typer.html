@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin">
     <title>Typer — VendHjem | Lai Yde</title>
     <meta name="description" content="Typer i Integral Teori — personligheds- og stilmønstre der eksisterer på alle bevidsthedsniveauer. Artikler og øvelser.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -183,6 +184,10 @@
         .stagger-item { opacity: 0; transform: translateY(24px); transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
         .stagger-item.visible { opacity: 1; transform: translateY(0); }
         @media (prefers-reduced-motion: reduce) { [data-reveal], .stagger-item { opacity: 1 !important; transform: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+    
+        /* FE6 */ @view-transition { navigation: auto; } ::view-transition-old(root) { animation: vt-fade-out 0.25s ease; } ::view-transition-new(root) { animation: vt-fade-in 0.25s ease; } @keyframes vt-fade-out { to { opacity: 0; } } @keyframes vt-fade-in { from { opacity: 0; } }
+        /* FE3 */ @property --grad-angle { syntax: '<angle>'; initial-value: 135deg; inherits: false; } @keyframes gradient-shift { 0% { --grad-angle: 135deg; } 50% { --grad-angle: 225deg; } 100% { --grad-angle: 135deg; } } @media (prefers-reduced-motion: no-preference) { .btn-primary.gradient-animated { animation: gradient-shift 6s ease-in-out infinite; background: linear-gradient(var(--grad-angle), var(--color-green), #2A3B38, var(--color-green-light)); background-size: 200% 200%; } }
+        /* FE4 */ .nav-logo-svg { display: none; } .nav-logo.has-svg .nav-logo-text { display: none; } .nav-logo.has-svg .nav-logo-svg { display: block; } .nav-logo-svg text { font-family: 'Lora', Georgia, serif; font-size: 24px; letter-spacing: -0.02em; } .nav-logo-svg .logo-vend { fill: var(--color-green); stroke: var(--color-green); } .nav-logo-svg .logo-hjem { fill: var(--color-accent); stroke: var(--color-accent); } .nav-logo-svg text { stroke-width: 0.7; fill-opacity: 0; stroke-dasharray: 300; stroke-dashoffset: 300; } @media (prefers-reduced-motion: no-preference) { .nav-logo-svg text { animation: logo-draw 2s ease forwards, logo-fill 0.6s ease 1.8s forwards; } } @media (prefers-reduced-motion: reduce) { .nav-logo-svg text { stroke-dashoffset: 0; fill-opacity: 1; stroke-width: 0; } } @keyframes logo-draw { to { stroke-dashoffset: 0; } } @keyframes logo-fill { to { fill-opacity: 1; stroke-width: 0; } }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
@@ -212,7 +217,7 @@
 
 <nav>
     <div class="container">
-        <a href="index.html" class="nav-logo">Vend<span>Hjem</span></a>
+        <a href="index.html" class="nav-logo has-svg"><span class="nav-logo-text">Vend<span>Hjem</span></span><svg class="nav-logo-svg" viewBox="0 0 155 30" width="155" height="30" xmlns="http://www.w3.org/2000/svg" aria-label="VendHjem"><text y="24"><tspan class="logo-vend">Vend</tspan><tspan class="logo-hjem">Hjem</tspan></text></svg></a>
         <div class="nav-links" id="navLinks">
             <a href="index.html">Forside</a>
             <a href="integral.html" class="active">Integral Teori</a>
