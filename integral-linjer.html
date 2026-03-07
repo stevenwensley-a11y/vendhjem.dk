@@ -187,6 +187,9 @@
         [data-reveal].visible { opacity: 1; transform: translateY(0); }
         .stagger-item { opacity: 0; transform: translateY(24px); transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
         .stagger-item.visible { opacity: 1; transform: translateY(0); }
+        /* Native smooth scroll (Lenis removed) */
+        html { scroll-behavior: smooth; }
+
         @media (prefers-reduced-motion: reduce) { [data-reveal], .stagger-item { opacity: 1 !important; transform: none !important; transition: none !important; } html { scroll-behavior: auto; } }
     
         /* FE6: View Transitions */
