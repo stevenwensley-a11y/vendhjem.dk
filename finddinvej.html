@@ -568,7 +568,7 @@
         /* FE4 */ .nav-logo-svg { display: none; } .nav-logo.has-svg .nav-logo-text { display: none; } .nav-logo.has-svg .nav-logo-svg { display: block; } .nav-logo-svg text { font-family: 'Lora', Georgia, serif; font-size: 24px; letter-spacing: -0.02em; } .nav-logo-svg .logo-vend { fill: var(--color-green); stroke: var(--color-green); } .nav-logo-svg .logo-hjem { fill: var(--color-accent); stroke: var(--color-accent); } .nav-logo-svg text { stroke-width: 0.7; fill-opacity: 0; stroke-dasharray: 300; stroke-dashoffset: 300; } @media (prefers-reduced-motion: no-preference) { .nav-logo-svg text { animation: logo-draw 2s ease forwards, logo-fill 0.6s ease 1.8s forwards; } } @media (prefers-reduced-motion: reduce) { .nav-logo-svg text { stroke-dashoffset: 0; fill-opacity: 1; stroke-width: 0; } } @keyframes logo-draw { to { stroke-dashoffset: 0; } } @keyframes logo-fill { to { fill-opacity: 1; stroke-width: 0; } }
     </style>
 
-    <!-- Design System v2: Lenis + GSAP + Splitting + CountUp -->
+    <!-- Design System v2: GSAP + Splitting + CountUp -->
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css">
         <meta name="description" content="Tag quizzen og find ud af hvilket forløb der passer til dig. Foredrag, coaching eller retreat?">
@@ -900,7 +900,6 @@
 </script>
 
 <!-- Design System v2: Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
@@ -909,14 +908,9 @@
     // === Design System v2 Init ===
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // 1. Lenis smooth scroll + GSAP sync
-    let lenis;
+    // 1. Native smooth scroll + GSAP ScrollTrigger (Lenis removed)
     if (!prefersReducedMotion) {
-        lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
         gsap.registerPlugin(ScrollTrigger);
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-        gsap.ticker.lagSmoothing(0);
     }
 
     // 2. IntersectionObserver scroll-reveal
@@ -952,11 +946,9 @@
             e.preventDefault();
             const target = document.querySelector(a.getAttribute('href'));
             if (target) {
-                if (lenis) {
-                    lenis.scrollTo(target, { offset: -76 });
-                } else {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                const headerOffset = 76;
+                const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({ top: elementPosition - headerOffset, behavior: 'smooth' });
                 const navLinks = document.getElementById('navLinks');
                 if (navLinks) navLinks.classList.remove('open');
             }
