@@ -604,6 +604,9 @@
             transform: translateY(0);
         }
 
+        /* Native smooth scroll (Lenis removed) */
+        html { scroll-behavior: smooth; }
+
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
             [data-reveal], .stagger-item, [data-splitting] .char {
